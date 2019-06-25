@@ -47,9 +47,8 @@ module('Unit | filter-test-modules', function(hooks) {
     });
 
     test('should return an empty list when there is no match', function(assert) {
-      assert.throws(
-        () => filterTestModules(this.modules, 'no-match'),
-        /No tests matched with the filter:/
+      assert.deepEqual(
+        [], filterTestModules(this.modules, 'no-match')
       );
     });
 
@@ -146,9 +145,8 @@ module('Unit | filter-test-modules', function(hooks) {
     });
 
     test('should return an empty list when there is no match', function(assert) {
-      assert.throws(
-        () => filterTestModules(this.modules, null, 'no-match'),
-        /No tests matched with the filter:/
+      assert.deepEqual(
+        [], filterTestModules(this.modules, null, 'no-match')
       );
     });
 

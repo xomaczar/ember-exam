@@ -45,9 +45,7 @@ describe('Unit | filter-test-modules', () => {
     });
 
     it('should return an empty list when there is no match', () => {
-      expect(() => {
-        filterTestModules(this.modules, 'no-match');
-      }).to.throw(/No tests matched with the filter:/);
+      expect(filterTestModules(this.modules, 'no-match')).to.deep.equal([]);
     });
 
     it('should return a list of tests matched with a regular expression', () => {
@@ -121,9 +119,8 @@ describe('Unit | filter-test-modules', () => {
     });
 
     it('should return a list of tests matched with a regular expression', () => {
-      expect(() => {
-        filterTestModules(this.modules, null, 'no-match');
-      }).to.throw(/No tests matched with the filter:/);
+      expect(filterTestModules(this.modules, null, 'no-match')).to.deep.equal([
+      ]);
     });
 
     it('should return a list of tests matches with a list of string options', () => {
